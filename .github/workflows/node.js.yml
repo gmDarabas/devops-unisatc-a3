@@ -9,11 +9,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
 
-    - run: npm install
-    - run: npx playwright install --with-deps
-    - run: npx playwright test
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Instalar Playwright e suas dependências
+        run: npx playwright install --with-deps
+
+      - name: Build do Strapi
+        run: npm run build
+
+      - name: Iniciar o Strapi em segundo plano
+        run: |
+          npm run start &
+          sleep 10
+
+      - name: Esperar o Strapi estar disponível
+        run: npx wait-on http://localhost:1337/admin
+
+      - name: Executar testes Playwright
+        run: npx playwright test
