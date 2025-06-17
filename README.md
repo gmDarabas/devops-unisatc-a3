@@ -1,9 +1,9 @@
 # Nome integrantes:
-Arthur Honorato
-Guilherme Darabas
-Paulo Simão
-Rubens Scotti Jr.
-Stephan Marques
+- Arthur Honorato
+- Guilherme Darabas
+- Paulo Simão
+- Rubens Scotti Jr.
+- Stephan Marques
 
 # 🚀 Getting started with Strapi
 ## Rodar no local
