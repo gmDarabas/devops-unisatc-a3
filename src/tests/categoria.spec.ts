@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-
+//
 test('Verifica login e acesso à collection Categoria', async ({ page }) => {
   await page.goto('http://localhost:1337/admin');
   await page.fill('input[name="email"]', 'admin@satc.edu.br');
